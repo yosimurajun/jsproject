@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General questions</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+</head>
+<style>
+
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: rgb(230, 227, 201);
+    }
+    main {
+        width: 100%;
+        padding: 50px 0 20px;
+        
+    }
+    #title {
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size: 35px;
+        font-style: italic;
+        text-transform: capitalize;
+        color: rgb(206, 175, 1);
+    }
+    #container {
+        /* background-color: springgreen; */
+        width: 70vw;
+        margin: 50px auto;
+    }
+    .content {
+        background-color: #fff;
+        margin: 25px 0;
+        /* padding: 0px 20px; */
+        position: relative;
+        border-radius: 4px;
+        font-family: 'Raleway', sans-serif;
+
+    }
+    .content_title {
+        padding: 25px  20px;
+        text-transform: capitalize;
+        
+    }
+    
+    .content_text {
+
+        padding :20px 20px;
+        display: none;
+        border-top: 1px solid rgb(214, 228, 243);
+        line-height: 1.5;
+        
+    }
+    .fa-plus-square {
+        position: absolute;
+        top: 1.65rem;
+        right: 1rem;
+        font-size: 20px;
+        color: rgb(206, 175, 1);
+        transition: all 0.2s linear;
+    }
+    .fa-plus-square:hover {
+        transform: rotate(90deg);
+    }
+    .show {
+        display: block;
+    }
+
+    @media (max-width: 480px)
+    {
+        #title {
+            font-size: 28px;
+        }
+        /* .content {
+            border-radius: 0;
+        } */
+        #container  {
+            width: 95%;
+        }
+        .content_title {
+        font-size: 13px;
+        padding: 25px 15px;
+        
+        }
+        .content_text {
+            font-size: 13px;
+        }
+
+        .fa-plus-square {
+            top: 1.5rem;
+            right: 0.5rem;
+        }
+
+    }
+</style>
+<body>
+    <main>
+        <div id="title"><h2>general questions</h2></div>
+        <div id="container">
+            <div class="content">
+                <div class="content_title">
+                    <h3>do you accept all major credit cards?</h3>
+                </div>
+                
+                    <p class="content_text faq_1">The classList property is not supported in Internet Explorer 9. The following example uses a cross-browser solution/fallback code for IE9:</p>
+                
+                <i class="far fa-plus-square faq_1"></i>
+            </div>
+            <div class="content">
+                <div class="content_title">
+                    <h3>do you support local farmers?</h3>
+                </div>
+                <p class="content_text faq_2">The classList property is not supported in Internet Explorer 9. The following example uses a cross-browser solution/fallback code for IE9:</p>
+                <i class="far fa-plus-square faq_2"></i>
+            </div>
+            <div class="content">
+                <div class="content_title">
+                    <h3>do you use organic ingredients?</h3>
+                </div>
+                <p class="content_text faq_3">The classList property is not supported in Internet Explorer 9. The following example uses a cross-browser solution/fallback code for IE9:</p>
+                <i class="far fa-plus-square faq_3"></i>
+            </div>
+        </div>
+    </main>
+    <script src="./faqPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reponsive Navbar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+    *  {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        /* background-color: red; */
+        border-bottom : 1px solid rgb(226, 226, 226);
+        padding: 15px 35px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        font-family: "Roboto", sans-serif;
+        
+        
+    }
+    @media (max-width: 975px)
+    {
+        header {
+            display: block;
+            border-right : 1px solid rgb(226, 226, 226);
+            border-bottom : none;
+            background-color: #fff;
+            width: 45vw;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: -500px;
+        }
+    }
+  
+    .click {
+        /* left: 0; */
+        animation: slide 2s ease ;
+        animation-fill-mode: forwards;
+    }
+    @keyframes slide {
+        0% {
+            /* left: -500px; */
+        }
+        
+        100% {
+            left: 0;
+        }
+    }
+    #logo {
+        text-transform: capitalize;
+        font-size: 28px;
+        text-shadow: 1px 1px 2px rgb(31, 143, 255);
+        
+    }
+    #logo_right {
+        color: rgb(31, 143, 255);
+    }
+    nav {
+        display: flex;
+        font-family: "Open Sans", sans-serif;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    .menu {
+        margin: 2px 40px;
+        text-transform: capitalize;
+        color:rgb(94, 94, 94);
+        font-size: 20px;
+        
+
+    }
+    .menu:hover {
+        border-bottom: 1px solid rgb(182, 182, 182);
+    }
+    @media (max-width: 975px) {
+        nav {
+            display: block;
+        }
+        .menu {
+            display: block;
+            margin: 25px 0;
+            font-size: 20px;
+        }
+    }
+
+    .fab {
+        margin: 0 10px;
+    }
+    main {
+        text-align: center;
+    }
+    #title {
+        margin: 100px 0;
+    }
+    #sns {
+        /* background-color: red; */
+        position: relative;
+        right: -100px;
+    }
+    .fa-bars {
+        /* position: fixed; */
+        top :10px;
+        right: 0px;
+        padding: 14px 35px;
+        display: none;
+        
+    }
+    .fa-bars:hover {
+        color: rgb(182, 182, 182);
+        cursor: pointer;
+    }
+    @media (max-width: 975px) {
+        .fab {
+        margin: 10px 10px;
+         }
+        
+            .fa-bars {
+            position: fixed;
+            padding: 15px 35px;
+            display: block;   
+            z-index: 1;
+            /* background-color: red; */
+            /* font-size: 200px; */
+            
+        }
+
+        #sns {
+        position: static;
+        right: 0px;
+        }
+    }
+    .fa-times {
+        position: relative;
+        top: -303px;
+        left: 210px;
+        color:rgb(255, 31, 31);
+    }
+    @media (max-width: 420px) {
+        header {
+            width: 100vw;
+            /* background-color: red; */
+            z-index: 1;
+            text-align: center;
+        }
+        .fa-times {
+        position: relative;
+        top: -303px;
+        left: 140px;
+        color:rgb(255, 31, 31);
+        }
+        #sns {
+        position: static;
+        right: 0px;
+    }
+    }
+</style>
+<body>
+    <i class="fas fa-bars"></i>
+    <header>
+        <p id="logo">conding <span id="logo_right">addict</span></p>
+        <nav>
+            <a href="#" class="menu">home</a>
+            <a href="#" class="menu">about</a>
+            <a href="#" class="menu">projects</a>
+            <a href="#" class="menu">contact</a>
+        </nav>
+        <div id="sns">
+            <a href="#" ><i class="fab fa-instagram"></i></a>
+            <a href="#" ><i class="fab fa-facebook-f"></i></a>
+            <a href="#" ><i class="fab fa-twitter"></i></a>
+            <a href="#" ><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        
+        <i class="fas fa-times"></i>
+    </header>
+    <main>
+        <h1 id="title">Responsive Navbar</h1>
+    </main>
+    <script src='./reponsivenavbar.js'></script>
+</body>
+</html>
