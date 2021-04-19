@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html, body {
+        height: 100%;
+    }
+    #container {
+        height: auto;
+    }
+
+    #title_section {
+        /* background-color: red; */
+        text-align: center;
+        padding: 20px 0px;
+        font-family: 'Dancing Script', cursive;
+    }
+
+    h2 {
+        font-size: 55px;
+        text-transform: capitalize;
+        text-decoration: underline;
+        line-height: 1.5;
+
+    }
+
+    .btn-container {
+        /* background-color: rgb(30, 144, 255); */
+        text-align: center;
+    }
+
+    button {
+        padding: 8px 20px;
+        margin: 0 8px;
+        border: 1px solid rgb(212, 189, 57);
+        border-radius: 4px;
+        color: rgb(212, 189, 57);
+        text-transform: capitalize;
+        background-color: #fff;
+    }
+
+    button:hover {
+        color: #fff;
+        background-color: rgb(212, 189, 57)
+    }
+
+    #item_section {
+        /* background-color: rgb(124, 235, 50); */
+        padding: 80px 100px;
+        display: grid;
+        /* grid-template-rows: repeat(2, 100px); */
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 100px;
+        gap: 40px;
+        margin-bottom: 20px;
+        
+    }
+
+    .item {
+        display: flex;
+    }
+    .left {
+        
+        width: 200px;
+        height: 120px;
+        border: 3px solid rgb(212, 189, 57);
+        border-radius: 4px;
+    }
+    .right {    
+        padding: 0 0px 0 14px;
+    }
+    .right_top  {
+        display: flex;
+        justify-content: space-between;
+    }
+    .right_top h3 {
+        font-family: cursive;
+        text-transform: capitalize;
+    }
+    .right_top span {
+        color: rgb(212, 189, 57);;
+    }
+    .right_text {
+        padding: 10px 0;
+        /* color: red; */
+        /* background-color: red; */
+        line-height: 1.5;
+        font-family: 'Raleway', sans-serif;
+        font-size: 15px;
+    }
+    img {
+        width: 100%;
+        /* visibility: hidden; */
+        /* height: 100%; */
+    }
+
+    @media (max-width: 800px)
+    {
+        #item_section {
+        /* background-color: rgb(124, 235, 50); */
+        padding: 80px 20px;
+        grid-template-columns: repeat(1, 1fr);
+    
+        }
+        .right {    
+        width: 100%;
+    }
+    }
+
+    @media (max-width: 768px)
+    {
+        #item_section {
+        /* background-color: rgb(124, 235, 50); */
+        padding: 80px 20px;
+        grid-template-columns: repeat(1, 1fr);
+    
+        }
+        .right {    
+        width: 100%;
+    }
+    }
+    @media (max-width: 480px)
+    {
+        button {
+     
+        
+        border-radius: 0px;
+    }
+
+        #container {
+            padding: 20px 14px;
+        }
+        h2 {
+        font-size: 44px;
+
+        }
+        .btn-container {
+            display: grid;
+            margin: 0 0 40px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        button {
+            margin: 0;
+        }
+         
+        #item_section {
+        /* background-color: rgb(124, 235, 50); */
+        padding:0;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        }
+        .left { 
+            width: 160px;
+        }
+
+        .right_top  {
+        display: block;
+        position: relative;
+    }
+    .right_top h3 {
+        font-family: cursive;
+        text-transform: capitalize;
+        font-size: 16px;
+    }
+    .right_top span {
+        font-size: 12px;
+        position: absolute;
+        right: 1rem;
+        margin-top: 3px;
+    }
+    .right_text {
+        padding: 10px 0 0;
+        margin-top: 10px;
+        /* color: red; */
+        /* background-color: red; */
+        line-height: 1.5;
+        font-family: 'Raleway', sans-serif;
+        font-size: 12px;
+    }
+        
+    }
+    @media (max-width: 414px)
+    {
+
+    .right_top span {
+        font-size: 9px;
+        position: absolute;
+        right: 0.1rem;
+        margin-top: 3px;
+    }
+    }
+
+    @media (max-width: 380px)
+    {
+        .right_top h3 {
+        font-family: cursive;
+        text-transform: capitalize;
+        font-size: 14px;
+    }
+
+    .right_top span {
+        font-size: 9px;
+        position: absolute;
+        right: 0.2rem;
+        margin-top: 3px;
+    }
+    .right_text {
+        padding: 10px 0 0;
+        margin-top: 10px;
+        /* color: red; */
+        /* background-color: red; */
+        line-height: 1.5;
+        font-family: 'Raleway', sans-serif;
+        font-size: 10px;
+    }
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="title_section">
+            <h2>our menu</h2>
+        </div>
+        <div class="btn-container">
+        </div>
+        <div id="item_section">
+
+        </div>
+    </div>
+    <script src="./restaurantMenuPage.js"></script>
+</body>
+
+</html>
