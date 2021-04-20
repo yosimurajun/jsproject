@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll proejct</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        position: absolute;
+        width:100vw;
+        /* display: flex; */
+        /* justify-content: space-around; */
+        padding: 26px 20px;
+        z-index: 1111;
+        /* background-color: rgb(255, 235, 205); */
+        color: #fff;
+        top: 0;
+        /* left: 0; */
+        right: 0;
+        transition: all 0.3s;
+    }
+
+    #logo {
+        float: left;
+        color: #000;
+        position: relative;
+        top: 0rem;
+        font-size: 30px;
+        transform: rotate(180deg);
+    }
+    .fa-mountain {
+        margin: 0px 125px 0 0;   
+    }
+    #logo::before {
+        content: "mountain";
+        font-size: 12px;
+        position: relative;
+        top: -1rem;
+        left: 3.1rem;
+    }
+
+    #navigation {
+        float: right;
+        display: flex;
+        font-size: 20px;
+        text-transform: capitalize;
+        align-items: center;
+        margin-right: 100px;
+        margin-top: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+        margin: 0 15px;
+        color: #fff;
+        
+    }
+
+    /* main */
+    main {
+        /* height: 100vh; */
+        position: relative;
+    }
+
+    .part {
+        /* background-color: rgb(255, 235, 205); */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .first {
+        background-image: url('./image/Screenshot_2021-04-20\ Top\ 10\ mountains\ you\ will\ want\ to\ climb\ and\ why\ -\ TravelManagers.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .first::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(0, 101, 253);
+        opacity: 0.5;
+
+
+    }
+
+    .detail {
+        z-index: 1;
+        text-align: center;
+    }
+    #index {
+        padding-top: 8rem;
+    }
+
+    .index_title {
+        font-size: 45px;
+        color: #fff;
+        z-index: 1;
+        margin: 10px 0 5px;
+        letter-spacing: 6px;
+    }
+
+    .first p {
+        color: #fff;
+        width: 45vw;
+        margin: 0px 0 20px;
+        line-height: 1.5;
+    }
+
+    button {
+        padding: 8px 20px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        background-color: rgba(255, 255, 255, 0);
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+    #one, #two, #three {
+        color: #000;
+        font-size: 40px;
+        letter-spacing: 10px;
+    }
+    .fa-bars {
+        visibility: hidden;
+        font-size: 40px;
+    }
+
+    @media (max-width: 768px) {
+
+        
+
+        .fa-mountain {
+        /* margin: 0px 0px 0 180px;    */
+        
+        }
+
+        #logo::before {
+        content: "mountain";
+        font-size: 12px;
+        position: relative;
+        top: -1rem;
+        left: 3.1rem;
+    }
+
+        #navigation {
+        margin-right: 40px;
+        margin-top: 5px;
+        display: block;
+        }
+
+
+        .first p {
+        color: #fff;
+        width: 70vw;
+        margin: 0px 0 20px;
+        line-height: 1.5;
+        }
+        
+    }
+
+    
+    @media (max-width: 360px) {
+
+        header {
+            transition: none;
+        }
+
+        #logo {
+            float: left;
+            text-align: right;
+            
+        }
+        .fa-mountain {
+            margin: 0 60px 0 0;
+        }
+        #navigation {
+            position: absolute;
+            top: 5rem;
+            /* margin: 10px 10px; */
+            display: none;
+            padding: 0 0px 0 20px;
+        }
+        #navigation a{
+            display: block;
+            /* width: 100vw; */
+            margin: 0 0px 0 0px;
+            width: 100vw;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            border: 1px solid rgb(240, 240, 240);
+            padding: 8px 0;
+            letter-spacing: 3px;
+        }
+
+        .fa-bars {
+        visibility: visible;
+        font-size: 30px;
+        float: right;
+        }
+
+       
+    }
+</style>
+
+<body>
+    <header>
+        <div id="logo">
+            <i class="fas fa-mountain"></i>
+        </div>
+        <div id="navigation">
+            <a href="#">homes</a>
+            <a href="#one">about</a>
+            <a href="#two">service</a>
+            <a href="#three">tours</a>
+        </div>
+        <i class="fas fa-bars"></i>
+    </header>
+    <main>
+        <section class="part first">
+            <div class="detail " id="index">
+                <h1 class="index_title">SCROLL PROJECT</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s.</p>
+                <button>explore tour</button>
+            </div>
+        </section>
+        <section class="part" id="one">
+            <div class="detail">
+                <h1>About</h1>
+            </div>
+        </section>
+        <section class="part" id="two">
+            <div class="detail content">
+                <h1>Service</h1>
+            </div>
+        </section>
+        <section class="part" id="three">
+            <div class="detail content">
+                <h1>Tours</h1>
+            </div>
+        </section>
+    </main>
+    <script src="./navigationBarOnScroll.js"></script>
+</body>
+
+</html>
