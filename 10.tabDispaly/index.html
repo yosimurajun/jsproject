@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab menu</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    #about {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(250, 240, 249);
+        overflow-x: hidden;
+        padding: 40px 0;
+    }
+    #about_title {
+        text-align: center;
+        text-transform: capitalize;
+        padding: 20px 0 10px;
+        
+    }
+    #about_subtitle {
+        text-align: center;
+        color: rgb(99, 99, 99);
+    }
+    #about_content {
+        margin-top: 50px;
+        /* background-color: lightcoral; */
+        padding: 0 30px;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    .about_content_left {
+        
+        /* background-color: lightgreen; */
+        width: 100%;
+        /* height: 40vh; */
+    }
+    .image {
+        position: relative;
+        width: 100%;
+        /* height: 40vh; */
+        /* display: block; */
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .about_content_right {
+        background-color: rgb(228, 228, 228);
+        border-radius: 4px;
+        height: 100%;
+    }
+    .about_content_right_header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* height: 45px; */
+        
+    }
+    .about_content_right_body {
+        padding: 20px;
+        background-color: rgb(228, 228, 228);
+        min-height: 58vh;
+        max-height: 58vh;
+    }
+    .about_content_right_body_content {
+        display: none;
+    }
+    h3 {
+        font-size: 20px;
+        letter-spacing: 4px;
+        padding: 10px 0;
+        text-transform: capitalize;
+    }
+    p {
+        line-height: 1.3;
+    }
+    button {
+        background-color: rgb(243, 186, 186);
+        border: none;
+        letter-spacing: 4px;
+        font-size: 14px;
+        text-transform: capitalize;
+        padding: 16px;
+        /* border-radius: 4px; */
+    }
+    .active {
+        display: block;
+    }
+    .tap {
+        background-color: rgb(253, 2, 2);
+        color: #fff;
+    }
+
+    @media (max-width: 800px)
+    {
+        #about_content {
+            display: block;
+        }
+        .about_content_left {
+            margin-bottom: 40px;
+        }
+        .about_content_right_body
+        {
+            min-height: 20vh;
+            max-height: 20vh;
+        }
+        h3 {
+            font-size: 24px;
+        }
+        button {
+            font-size: 18px;
+        }
+        .about_content_right_body_content {
+            font-size: 19px;
+        }
+    }
+
+    @media (max-width: 768px)
+    {
+        #about_content {
+            display: block;
+        }
+        #about_content {
+            padding-bottom: 30px;
+        }
+        .about_content_left {
+            margin-bottom: 40px;
+        }
+        .about_content_right_body
+        {
+            min-height: 40vh;
+            max-height: 40vh;
+        }
+        h3 {
+            font-size: 20px;
+        }
+        button {
+            font-size: 14px;
+        }
+        .about_content_right_body_content {
+            font-size: 19px;
+        }
+    }
+    
+
+    @media (max-width: 414px)
+    {
+        
+        h3 {
+            font-size: 18px;
+        }
+        #about_subtitle {
+            line-height: 1;
+            margin:0 30px;
+        }
+        #about_content {
+            padding-bottom: 30px;
+        }
+        .about_content_right_body
+        {
+            min-height: 40vh;
+            max-height: 25vh;
+        }
+        .about_content_right_body_content {
+            font-size: 13px;
+        }
+        button {
+            font-size: 12px;
+        }
+    }
+</style>
+<body>
+    <div id="about">
+        <h1 id="about_title">title</h1>
+        <p id="about_subtitle"> name="viewport" content="width=device-width, initial-scale=1.</p>
+        <div id="about_content">
+            <div class="about_content_left">
+                <img class="image" src='./Screenshot_2021-04-20 Top 10 mountains you will want to climb and why - TravelManagers.png' alt=".."/>
+            </div>
+            <div class="about_content_right">
+                <div class="about_content_right_header">
+                    <button class="btn about tap" data-id="history">history</button>
+                    <button class="btn vision" data-id="vision">vision</button>
+                    <button class="btn goals" data-id="goals">goals</button>
+                </div>
+                <div class="about_content_right_body">
+                    <div class="about_content_right_body_content active" id="history">
+                        <h3>history</h3>
+                        <p>history name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.</p>
+                    </div>
+                    <div class="about_content_right_body_content" id="vision">
+                        <h3>vision</h3>
+                        <p>vision name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.</p>
+                    </div>
+                    <div class="about_content_right_body_content" id="goals">
+                        <h3>goals</h3>
+                        <p>goals name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.name="viewport" content="width=device-width, initial-scale=1.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src='./tabDisplay.js'></script>
+</html>
