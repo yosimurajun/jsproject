@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        background-color: rgb(255, 235, 205);
+        /* width: 40vw; */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 100px 40px;
+        align-items: center;
+        
+    }
+    .container h1 {
+        margin: 20px 0;
+        
+    }
+    .section {
+        margin: 20px 0;
+        padding: 0 40px;
+    }
+    @media (max-width: 420px)
+    {
+        .container h1 {
+        font-size: 26px;
+        
+        }
+    }
+</style>
+<body>
+    
+    <div class="container">
+        <h1>Lorem ipsum generator</h1>
+        <form id="lorem-form">
+            <input type="number" id="number" placeholder="Number"/>
+            <button type="submit">generate</button>
+        </form>
+        <div class="section">
+            
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: rgb(133, 99, 99);
+    }
+    article {
+        background-color: #fff;
+        width: 40vw;
+        margin: 100px auto;
+        padding: 40px;
+        font-size: 18px;
+        border-radius: 4px;
+        text-align: center;
+        
+        
+    }
+    #msg {
+        position: relative;
+        font-size: 14px;
+        height: 30px;
+    }
+    .success {
+        /* position: absolute; */
+        /* top: -2rem;
+        left: 11rem; */
+        color: #fff;
+        background-color: rgb(87, 150, 71);
+        padding: 8px 10px;
+    }
+    .error {
+        /* position: absolute; */
+        /* top: -2rem;
+        left: 11rem; */
+        color: #fff;
+        background-color: rgb(255, 75, 75);
+        padding: 4px 10px;
+    }
+    #grocery-form {
+        display: flex;
+        
+    }
+    #grocery {
+        width: 100%;
+        padding:10px;
+        font-size: 20px;
+        /* border-radius: 4px; */
+    }
+    #submit_button {
+        padding: 10px;
+        border: 1px solid rgb(87, 150, 71);
+        background-color: rgb(87, 150, 71);
+        color: #fff;
+        /* border-radius: 4px; */
+    }
+    .section {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        padding: 10px;
+    }
+    .btn {
+        padding: 8px 12px;
+        border: none;
+        /* border-radius: 4px; */
+        text-transform: capitalize;
+    }
+    .btn:first-child {
+        background-color: rgb(73, 186, 252);
+    }
+    .btn:last-child {
+        background-color: rgb(255, 75, 75);
+    }
+
+    @media (max-width: 800px)
+    {
+        article {
+            width: 75vw;
+        }
+    }
+    @media (max-width: 420px)
+    {
+        article {
+            width: 60vw;
+            padding: 25px;
+        }
+
+        #grocery {
+        width: 100%;
+        padding:10px;
+        font-size: 16px;
+        }
+        .btn {
+            font-size: 12px;
+        }
+    }
+    
+    
+</style>
+<body>
+    <article>
+        <div id="msg"></div>
+        <form id="grocery-form">
+            <input type="text" placeholder="example. eggs" id="grocery" />
+            <button id="submit_button" type="submit">Submit</button>
+        </form>
+        <div id="grocery-list">
+    </article>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
