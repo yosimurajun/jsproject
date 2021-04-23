@@ -36,11 +36,7 @@ function displayList() {
     const submit_button = grocery_form.querySelector('#submit_button');
     // update 
     update_buttons.forEach(function(update_button) {
-        if(update_status)
-            {
-                grocery_item.value = '';
-                submit_button.textContent = 'Submit';
-        } 
+
         update_button.addEventListener('click', function(e) {
 
             let current_item_id = e.currentTarget.parentElement.id;
@@ -84,14 +80,19 @@ grocery_form.addEventListener('submit', function(e) {
         console.log('update');
         groceries[update_data] = newItem;
         update_status = true;
+        submit_button.textContent = 'Submit';
     }
     else if(newItem){
         console.log('# submit');
         groceries.push(newItem);
         grocery_item.value = '';
+        
         message.innerHTML = `<span class="success">SUCCESS::INPUT DATA</span>`;
         
+        
+        
     }  else {
+        
         message.innerHTML = `<span class="error">ERROR::INPUT CORRECT DATA</span>`;
     }
     displayList();
