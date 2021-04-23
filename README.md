@@ -11,5 +11,5 @@ javascript proejct
 --9.vanigation bar on scroll(https://yosimurajun.github.io/jsproject/9.navigationBaronScroll)
 --10.tab display(https://yosimurajun.github.io/jsproject/10.tabDispaly)
 --11.count down clock(https://yosimurajun.github.io/jsproject/11.countdownClock)
---12.lorem ipsum generator(https://yosimurajun.github.io/jsproject/12.loremipsumGenerator)
+--12.lorem ipsum generator(https://yosimurajun.github.io/jsproject/12.loremIpsumGenerator)
 --13.grocery list(https://yosimurajun.github.io/jsproject/13.groceryList)
