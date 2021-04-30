@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+</head>
+<style>
+    #board {
+        display: flex;
+        position: relative;
+    }
+    #topleft {
+        
+        background-color: darkblue;
+        width: 200px;
+        height: 200px;
+    } 
+    #topright {
+        background-color: darkcyan;
+        width: 200px;
+        height: 200px;
+    }
+    #bottomleft {
+        background-color: darkgoldenrod;
+        width: 200px;
+        height: 200px;
+    }
+    #bottomright  {
+        background-color: darksalmon;
+        width: 200px;
+        height: 200px;
+    }
+    #controller {
+        background-color: darkslateblue;
+        color: white;
+        position: relative;
+        top: 13rem;
+        left: -310px;
+        width: 200px;
+        
+    }
+</style>
+<body>
+    
+    <div id="board">
+        <div id="topleft"></div>
+        <div id="topright"></div>
+        <div id="bottomleft"></div>
+        <div id="bottomright"></div>
+        <div id="controller">
+            <h2>simon</h2>
+            <input type="checkbox" id="power">power</input>
+            <button id="start">start</button>
+            <p id="status"></p>
+            <input type="checkbox" id="select">strict</input>
+        </div>
+    </div>
+
+    <script>
+        let orders = [];
+        let my_orders = [];
+        let compare_order = false;
+        let power_on = false;
+        let coin = 1;
+
+        for(let i = 0; i < 5; i++) {
+            orders.push(Math.floor(Math.random() * 3) + 1);
+        }
+        console.log("orders", orders);
+
+        
+        const power_button = document.querySelector("#power");
+        power_button.addEventListener('change', (event) => {
+            console.log("power");
+            if(power_button.checked) {
+                status.innerHTML = "-";    
+                power_on = true;
+            } else {
+                status.innerHTML = "";    
+                power_on = false;
+            }
+        });
+        
+        const start_button = document.querySelector("#start");
+        const status = document.querySelector("#status");
+        start_button.addEventListener("click", (event) => {
+            console.log('start');
+            if(power_on) {
+                status.innerHTML = coin;
+            }
+        });
+
+        //
+
+        const topleft = document.querySelector("#topleft");
+        const topright = document.querySelector("#topright");
+        const bottomleft = document.querySelector("#bottomleft");
+        const bottomright = document.querySelector("#bottomright");
+        
+        
+        
+        topleft.addEventListener("click", (event) => {
+            console.log("top left");
+            topleft.style.background = "lightskyblue";
+            my_orders.push(1);
+            timeoutId = setTimeout(() => {
+                initialize_color();
+            }, 1000);
+
+            
+
+            if(power_on && (orders[my_orders.length - 1] == my_orders[my_orders.length - 1])) {
+                status.innerHTML = ++coin;
+            }
+            
+            
+        });
+
+        function initialize_color() {
+            topleft.style.background = "darkblue";
+            topright.style.background = "darkcyan";
+            bottomleft.style.background = "darkgoldenrod";
+            bottomright.style.background = "darksalmon";
+        }
+       
+    </script>
+</body>
+</html>
