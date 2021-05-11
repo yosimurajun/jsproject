@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <form id="bookForm">
+      <input type="text" placeholder="title" id="title" class="title"/>
+      <input type="text" placeholder="author" id="author" class="author"/>
+      <input type="number" placeholder="pages" id="pages" class="pages" min="1"/>
+      <select id="read_status">
+        <option value="read">read</option>
+        <option value="not read">not read</option>
+      </select>
+      <input type="submit" value="add" id="add"/>
+    </form>
+    <table>
+      <thead>
+      <tr>
+        <th>title</th>
+        <th>author</th>
+        <th>pages</th>
+        <th>read</th>
+        <th>etc</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    </table>
+  </div>
+
+  <script src="./object_1.js"></script>
+</body>
+
+</html>

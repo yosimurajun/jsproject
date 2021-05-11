@@ -1,5 +1,5 @@
 let order = [];
-let playerDrader = [];
+let playerOrder = [];
 let flash;
 let turn;
 let good;
@@ -20,47 +20,43 @@ const onButton = document.querySelector("#on");
 const startButton = document.querySelector("#start");
 
 strictButton.addEventListener("change", (event) => {
-    if(strictButton.checked == true)
-    {
+    if(strictButton.checked == true) {
         strict = true;
     } else {
         strict = false;
     }
 });
 
-// power on 
-onButton.addEventListener('click', (event) => {
-    if(onButton.checked == true)
-     {
-         on = true;
-         turnCounter.innerHTML = "-";
-     } else {
+onButton.addEventListener("click", (event) => {
+    if(onButton.checked == true) {
+        on = true;
+        turnCounter.innerHTML = "-";
+    } else {
         on = false;
         turnCounter.innerHTML = "";
         clearColor();
         clearInterval(intervalId);
-     }
+    }
 });
 
-// start button
 startButton.addEventListener('click', (event) => {
     if(on || win) {
         play();
     }
-});
+})
 
-// game play - initialize
+
 function play() {
     win = false;
     order = [];
-    playerDrader = [];
+    playerOrder = [];
     flash = 0;
     intervalId = 0;
     turn = 1;
     turnCounter.innerHTML = 1;
     good = true;
     for(var i = 0; i < 20; i++) {
-        order.push(Math.floor(Math.random() * 4) + 1);
+        order.push(Math.floor(Math.random() * 4) +1);
     }
     compTurn = true;
 
@@ -69,13 +65,13 @@ function play() {
 
 function gameTurn() {
     on = false;
-
     if(flash == turn) {
         clearInterval(intervalId);
         compTurn = false;
         clearColor();
         on = true;
     }
+
     if(compTurn) {
         clearColor();
         setTimeout(() => {
@@ -83,10 +79,10 @@ function gameTurn() {
             if(order[flash] == 2) two();
             if(order[flash] == 3) three();
             if(order[flash] == 4) four();
-            flash++;
-        }, 200);
+            flash++; 
+        }, 200)
     }
-} 
+}
 
 function one() {
     if(noise) {
@@ -124,25 +120,23 @@ function four() {
     bottomRight.style.backgroundColor = "lightskyblue";
 }
 
-
 function clearColor() {
     topLeft.style.backgroundColor = "darkgreen";
-    topRight.style.backgroundColor = 'darkred';
+    topRight.style.backgroundColor = "darkred";
     bottomLeft.style.backgroundColor = "goldenrod";
     bottomRight.style.backgroundColor = "darkblue";
 }
 
 function flashColor() {
     topLeft.style.backgroundColor = "lightgreen";
-    topRight.style.backgroundColor = 'tomato';
+    topRight.style.backgroundColor = "tomato";
     bottomLeft.style.backgroundColor = "yellow";
     bottomRight.style.backgroundColor = "lightskyblue";
 }
 
-topLeft.addEventListener('click', (event) => {
-    // console.log("top left");
+topLeft.addEventListener("click", (event) => {
     if(on) {
-        playerDrader.push(1);
+        playerOrder.push(1);
         check();
         one();
         if(!win) {
@@ -153,11 +147,9 @@ topLeft.addEventListener('click', (event) => {
     }
 });
 
-
-topRight.addEventListener('click', (event) => {
-    // console.log("top left");
+topRight.addEventListener("click", (event) => {
     if(on) {
-        playerDrader.push(2);
+        playerOrder.push(2);
         check();
         two();
         if(!win) {
@@ -168,10 +160,9 @@ topRight.addEventListener('click', (event) => {
     }
 });
 
-bottomLeft.addEventListener('click', (event) => {
-    // console.log("top left");
+bottomLeft.addEventListener("click", (event) => {
     if(on) {
-        playerDrader.push(3);
+        playerOrder.push(3);
         check();
         three();
         if(!win) {
@@ -182,10 +173,9 @@ bottomLeft.addEventListener('click', (event) => {
     }
 });
 
-bottomRight.addEventListener('click', (event) => {
-    // console.log("top left");
+bottomRight.addEventListener("click", (event) => {
     if(on) {
-        playerDrader.push(4);
+        playerOrder.push(4);
         check();
         four();
         if(!win) {
@@ -196,49 +186,45 @@ bottomRight.addEventListener('click', (event) => {
     }
 });
 
-
 function check() {
-    if(playerDrader[playerDrader.length - 1] !== order[playerDrader.length - 1])
-    good = false;
+    if(playerOrder[playerOrder.length - 1] !== order[playerOrder.length -1])
+     good = false;
+     if(playerOrder.length == 20 && good) {
+         winGame();
+     }
+     if(good == false) {
+         flashColor();
+         turnCounter.innerHTML = "NO!";
+         setTimeout(() => {
+            turnCounter.innerHTML = turn;
+            clearColor();
 
-    if(playerDrader.length == 3 && good) {
-        winGame();
-    }
+            if(strict) {
+                play();
+            } else {
+                compTurn = true;
+                flash = 0;
+                playerOrder = [];
+                good = true;
+                intervalId = setInterval(gameTurn, 800);
+            }
+         }, 800);
 
-    if(good == false) {
-        flashColor();
-        turnCounter.innerHTML = "NO!";
-        setTimeout(() => {
-           turnCounter.innerHTML = turn; 
-           clearColor();
-
-           if(strict) {
-               play();
-           } else {
-               compTurn = true;
-               flash = 0;
-               playerDrader = [];
-               good = true;
-               intervalId = setInterval(gameTurn, 800);
-           }
-        }, 800);
-
-        noise = false;
-    }
-
-    if(turn == playerDrader.length && good && !win) {
-        turn++;
-        playerDrader = [];
-        compTurn = true;
-        flash = 0;
-        turnCounter.innerHTML = turn;
-        intervalId = setInterval(gameTurn, 800);
-    }
+         noise = false;
+     }
+     if(turn == playerOrder.length && good && !win) {
+         turn++;
+         playerOrder = [];
+         compTurn = true;
+         flash = 0;
+         turnCounter.innerHTML = turn;
+         intervalId = setInterval(gameTurn, 800);
+     }
 }
 
-function winGame() {
+function windGame() {
     flashColor();
     turnCounter.innerHTML = "WIN!";
     on = false;
-    win = true;
+    wind = true;
 }

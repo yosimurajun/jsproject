@@ -89,6 +89,9 @@
             console.log('start');
             if(power_on) {
                 status.innerHTML = coin;
+                if(coin == 1) {
+                    orders[coin];
+                }
             }
         });
 
@@ -109,15 +112,49 @@
                 initialize_color();
             }, 1000);
 
-            
+            if(power_on && (orders[my_orders.length - 1] == my_orders[my_orders.length - 1])) {
+                status.innerHTML = ++coin;
+            }
+        });
+
+        topright.addEventListener("click", (event) => {
+            console.log("top right");
+            topright.style.background = "lightcyan";
+            my_orders.push(2);
+            timeoutId = setTimeout(() => {
+                initialize_color();
+            }, 1000);
 
             if(power_on && (orders[my_orders.length - 1] == my_orders[my_orders.length - 1])) {
                 status.innerHTML = ++coin;
             }
-            
-            
         });
 
+        bottomleft.addEventListener("click", (event) => {
+            console.log("bottom left");
+            bottomleft.style.background = "yellow";
+            my_orders.push(3);
+            timeoutId = setTimeout(() => {
+                initialize_color();
+            }, 1000);
+
+            if(power_on && (orders[my_orders.length - 1] == my_orders[my_orders.length - 1])) {
+                status.innerHTML = ++coin;
+            }
+        });
+
+        bottomright.addEventListener("click", (event) => {
+            console.log("bottom right");
+            bottomright.style.background = "lightpink";
+            my_orders.push(4);
+            timeoutId = setTimeout(() => {
+                initialize_color();
+            }, 1000);
+
+            if(power_on && (orders[my_orders.length - 1] == my_orders[my_orders.length - 1])) {
+                status.innerHTML = ++coin;
+            }
+        });
         function initialize_color() {
             topleft.style.background = "darkblue";
             topright.style.background = "darkcyan";
