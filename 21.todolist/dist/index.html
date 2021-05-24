@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+        ul {
+            list-style: none;
+        }
+
+
+        /*  */
+        #header {
+            background-color: rgb(231, 84, 84);
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 30px;
+            color: rgb(255, 255, 255);
+        }
+        #logo {
+            background-color: #fff;
+            width: 30px;
+            height: 30px;
+            
+        }
+        #search {
+            width: 400px;
+        }
+        #search_input {
+            width: 100%;
+            padding: 5px 14px;
+            border: none;
+            background-color: rgb(230, 104, 104);
+            color: rgb(255, 255, 255);
+            
+        }
+        #option {
+            display: flex;
+        }
+        #option > * {
+            margin: 0 10px;
+        }
+
+        /* container */
+
+        #container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 300px 1fr;
+            
+        }
+
+        #sideNavbar {
+            background-color: rgb(248, 248, 248);
+            padding: 15px 0px 0 35px;
+            text-transform: capitalize;
+            border-right: 1px solid rgb(212, 212, 212);
+        }
+        #side_header {
+            border-bottom: 1px solid rgb(212, 212, 212);
+        }
+        #side_header > ul > li {
+            padding: 8px 0;
+        }
+        #side_main > ul > li {
+            padding: 8px 0;
+        }
+        .side_link {
+            position: relative;    
+        }
+        .plus_btn {
+            position: absolute;
+            right: 1rem;
+        }
+
+        /* main */ 
+        #main{
+            padding: 40px;
+        }
+        .main_header {
+            margin-bottom: 20px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(212, 212, 212);
+        }
+        .item_option {
+            font-size: 14px;
+            color: rgb(131, 130, 130);
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <div id="logo"></div>
+            <div id="search">
+                <input type="text" name="search" id="search_input" placeholder="Quick find">
+            </div>
+            <div id="option">
+                <div class="part">1</div>
+                <div class="part">2</div>
+                <div class="part">3</div>
+                <div class="part">4</div>
+            </div>
+        </div>
+        <div id="container">
+            <div id="sideNavbar">
+                <div id="side_header">
+                    <ul>
+                        <li class="side_link" data-type="inbox">inbox</li>
+                        <li class="side_link" data-type="today">today</li>
+                        <li class="side_link" data-type="next">next 7 days</li>
+                        <li class="side_link" data-type="project">projects <span class="plus_btn">+</span></li>
+                    </ul>
+                </div>
+                <div id="side_main">
+                    <ul>
+                        <li>work</li>
+                        <li>personal</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="main">
+                <div class="main_header">
+                    <h2 class="main_header_title">Menu Title</h2>
+                </div>
+                <div class="main_container">
+                    <div class="item">
+                        <div class="item_title">
+                            <p>Polish brand idea</p>
+                        </div>
+                        <div class="item_option">
+                            <span>Personal</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_title">
+                            <p>Polish brand idea</p>
+                        </div>
+                        <div class="item_option">
+                            <span>Personal</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_title">
+                            <p>Polish brand idea</p>
+                        </div>
+                        <div class="item_option">
+                            <span>Personal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../src/index.js"></script>
+</body>
+</html>
