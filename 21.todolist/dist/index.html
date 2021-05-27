@@ -59,22 +59,22 @@
 
         #sideNavbar {
             background-color: rgb(248, 248, 248);
-            padding: 15px 0px 0 35px;
+            padding: 15px 0px 0 0;
             text-transform: capitalize;
             border-right: 1px solid rgb(212, 212, 212);
         }
         #side_header {
             border-bottom: 1px solid rgb(212, 212, 212);
         }
-        #side_header > ul > li {
-            padding: 8px 0;
-        }
-        #side_main > ul > li {
-            padding: 8px 0;
-        }
         .side_link {
             position: relative;    
+            padding: 10px 35px;
         }
+        .side_link:hover {
+            color: rgb(231, 84, 84);
+            background-color: rgba(230, 104, 104, 0.2);
+        }
+
         .plus_btn {
             position: absolute;
             right: 1rem;
@@ -86,17 +86,112 @@
         }
         .main_header {
             margin-bottom: 20px;
+            text-transform: capitalize;
+            color: rgb(231, 84, 84);
+        }
+        ._form {
+            width: 100%;
+            display: flex;
+            margin-bottom: 10px;
+        }
+        #contents {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid rgb(231, 84, 84);
+        }
+        #date {
+            width: 150px;
+            padding: 0 8px;
+            border: 1px solid rgb(231, 84, 84);
+            color: rgb(231, 84, 84);
+        }
+        ._form > button {
+            padding: 6px 14px;
+            font-size: 16px;
+            text-transform: uppercase;
+            background-color: rgb(231, 84, 84);
+            border: 1px solid rgb(231, 84, 84);
+            color: #fff;
+            letter-spacing: 2px;
         }
         .item {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid rgb(212, 212, 212);
         }
-        .item_option {
-            font-size: 14px;
+        .option {
+            
             color: rgb(131, 130, 130);
+            
         }
+        .option > * {
+            padding: 8px 10px;
+            margin-left: 10px;
+            color: rgb(231, 84, 84);
+        }
+        .update{
+            border: 1px solid rgb(231, 84, 84);
+            /* background-color: rgb(231, 84, 84); */
+        }
+        .update:hover {
+            background-color: rgb(231, 84, 84);
+            color: #fff;
+        }
+        .delete {
+            border: 1px solid rgb(231, 84, 84);
+            background-color: rgb(231, 84, 84);
+            color: #fff;
+        }
+        .delete:hover {
+            color: rgb(231, 84, 84);
+            background-color: #fff;
+        }
+        .active {
+            pointer-events: none;
+            background-color: rgba(230, 104, 104, 0.2);
+            color: rgb(231, 84, 84);
+        }
+        /* alert */
+        .alert {
+            position: absolute;
+            top: 8rem;
+            left:50%;
+            width: 500px;
+            height: 300px;
+            transform:translateX(-50%);
+            background-color: rgba(231, 84, 84, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 40px;
+            text-transform: capitalize;
+            
+
+        }
+        .error_button {
+            margin-top: 50px;
+            padding: 8px 10px;
+            background-color: rgb(255, 255, 255);
+            letter-spacing: 4px;
+            border: 1px solid rgb(231, 84, 84);
+        }
+        .error_desc {
+            font-size: 16px;
+            padding: 5px 0;
+            text-transform: none;
+        }
+        .error_button:hover {
+            background-color: rgb(231, 84, 84);
+            border: 1px solid rgb(255, 255, 255);
+        }
+
+        .stop {
+            pointer-events: none;
+        }
+        
     </style>
 </head>
 <body>
@@ -116,7 +211,7 @@
         <div id="container">
             <div id="sideNavbar">
                 <div id="side_header">
-                    <ul>
+                    <ul class="side_header_ul">
                         <li class="side_link" data-type="inbox">inbox</li>
                         <li class="side_link" data-type="today">today</li>
                         <li class="side_link" data-type="next">next 7 days</li>
@@ -124,47 +219,28 @@
                     </ul>
                 </div>
                 <div id="side_main">
-                    <ul>
-                        <li>work</li>
-                        <li>personal</li>
+                    <ul class="main_ul">
+                        <li class="side_link" data-type="work">work</li>
+                        <li class="side_link" data-type="personal">personal</li>
                     </ul>
                 </div>
             </div>
             <div id="main">
                 <div class="main_header">
-                    <h2 class="main_header_title">Menu Title</h2>
+                    <h2 class="main_header_title"></h2>
                 </div>
                 <div class="main_container">
-                    <div class="item">
-                        <div class="item_title">
-                            <p>Polish brand idea</p>
-                        </div>
-                        <div class="item_option">
-                            <span>Personal</span>
-                        </div>
+                    <div class="s_form"></div>
+                    <div class="items">
+
                     </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <p>Polish brand idea</p>
-                        </div>
-                        <div class="item_option">
-                            <span>Personal</span>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <p>Polish brand idea</p>
-                        </div>
-                        <div class="item_option">
-                            <span>Personal</span>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
 
 
-    <script src="../src/index.js"></script>
+    <script src="../dist/main.js"></script>
 </body>
 </html>
