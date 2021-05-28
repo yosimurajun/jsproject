@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"> 
     <style>
         * {
             margin: 0;
@@ -54,6 +56,7 @@
             display: grid;
             height: 100vh;
             grid-template-columns: 300px 1fr;
+            font-family: 'IBM Plex Mono', monospace;
             
         }
 
@@ -83,6 +86,7 @@
         /* main */ 
         #main{
             padding: 40px;
+            
         }
         .main_header {
             margin-bottom: 20px;
@@ -120,6 +124,24 @@
             padding: 12px 0;
             border-bottom: 1px solid rgb(212, 212, 212);
         }
+        .item_div_left {
+            display: flex;
+        }
+        .checkbox {
+            border: 1px solid white;
+        }
+        .item_para {
+            padding: 0 10px;
+        }
+        .detail {
+            font-size: 14px;
+            color:rgb(231, 122, 122);
+            
+        }
+        .checked {
+            text-decoration-line: line-through;
+            text-decoration-color: rgb(231, 84, 84);
+        }
         .option {
             
             color: rgb(131, 130, 130);
@@ -146,6 +168,9 @@
         .delete:hover {
             color: rgb(231, 84, 84);
             background-color: #fff;
+        }
+        .s_form {
+            margin-top: 12px;
         }
         .active {
             pointer-events: none;
@@ -234,7 +259,6 @@
                     <div class="items">
 
                     </div>
-                    
                 </div>
             </div>
         </div>

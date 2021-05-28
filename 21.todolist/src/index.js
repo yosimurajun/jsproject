@@ -12,36 +12,43 @@ let items = [
     {
         type: 'inbox',
         data: '5 mon 28 days',
-        date: '2021-05-27'
+        date: '2021-05-27',
+        checked: false
     },
     {
         type: 'inbox',
         data: '6 mon 2 days',
-        date: '2021-06-02'
+        date: '2021-06-02',
+        checked: true
     },
     {
         type: 'inbox',
         data: '6 mon 1 days',
-        date: '2021-06-01'
+        date: '2021-06-01',
+        checked: false
     },
-    // {
-    //     type: 'inbox',
-    //     data: 'we are playing computer game',
-    //     date: '2021-05-31'
-    // },
-    // {
-    //     type: 'inbox',
-    //     data: 'we are playing computer game',
-    //     date: '2021-05-30'
-    // },
-    // {
-    //     type: 'inbox',
-    //     data: 'sherlock holmes and jackferson'
-    // }
+    {
+        type: 'work',
+        data: 'we are playing computer game',
+        date: '2021-05-31',
+        checked: false
+    },
+    {
+        type: 'personal',
+        data: 'orange',
+        date: '2021-05-30',
+        checked: true
+    },
+    {
+        type: 'inbox',
+        data: 'sherlock holmes and jackferson',
+        date: '2021-05-28',
+        checked: true
+    }
 ]
 
 const item = (type, data, date) => {
-    return { type, data, date };
+    return { type, data, date, checked: false };
 }
 const container = document.querySelector('#container');
 const content_body = document.querySelector('#content');
@@ -73,8 +80,78 @@ function createForm(type) {
     s_form.innerHTML = '';
     s_form.appendChild(form);
 
-    //function
-    submitItem(form, type);
+    if (type === 'project') {
+        const form = document.createElement('form');
+        const content_input = document.createElement('input');
+        const submit = document.createElement('button');
+        content_input.setAttribute('type', 'text');
+        content_input.setAttribute('id', 'contents');
+        submit.setAttribute('type', 'submit');
+        submit.textContent = 'add';
+        form.classList.add(type);
+        form.classList.add('create');
+        form.classList.add('_form');
+        form.appendChild(content_input);
+        form.appendChild(submit);
+        s_form.innerHTML = '';
+        s_form.appendChild(form);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // <li class="side_link" data-type="work">work</li>
+            const li = document.createElement('li');
+            li.classList.add('side_link');
+            const content = document.querySelector('#contents');
+            if (content.value == '') {
+                const error_div = document.createElement('div');
+                error_div.classList.add('alert');
+                const error_para = document.createElement('p');
+                const error_para2 = document.createElement('p');
+                error_para.textContent = 'please input project name';
+                error_para2.textContent = 'ex) homework';
+                const error_button = document.createElement('button');
+                error_button.textContent = 'close';
+                error_button.classList.add('error_button');
+                error_para2.classList.add('error_desc');
+                error_div.appendChild(error_para);
+                error_div.appendChild(error_para2);
+                error_div.appendChild(error_button);
+                content_body.appendChild(error_div);
+                container.classList.add('stop');
+                error_button.addEventListener('click', (e) => {
+                    e.target.parentElement.parentElement.removeChild(error_div);
+                    container.classList.remove('stop');
+                });
+                return;
+            } else {
+                li.setAttribute('data-type', content_input.value);
+                li.textContent = content_input.value;
+                side_main_ul.appendChild(li);
+            }
+        });
+
+    } else {
+        const form = document.createElement('form');
+        const content_input = document.createElement('input');
+        const date_input = document.createElement('input');
+        const submit = document.createElement('button');
+        content_input.setAttribute('type', 'text');
+        content_input.setAttribute('id', 'contents');
+        date_input.setAttribute('type', 'date');
+        date_input.setAttribute('id', 'date');
+        submit.setAttribute('type', 'submit');
+        submit.textContent = 'add';
+        form.classList.add(type);
+        form.classList.add('create');
+        form.classList.add('_form');
+        form.appendChild(content_input);
+        form.appendChild(date_input);
+        form.appendChild(submit);
+        s_form.innerHTML = '';
+        s_form.appendChild(form);
+        submitItem(form, type);
+    }
+
+
 }
 
 function updateForm(type, data) {
@@ -210,6 +287,10 @@ function deleteItem(type, content) {
         items = items = items.filter((item) => item.data !== content);
         render(type);
     }
+    if (type !== 'inbox' && type !== 'today' && type !== 'next') {
+        items = items = items.filter((item) => item.data !== content);
+        render(type);
+    }
 
 }
 
@@ -224,28 +305,57 @@ function render(type) {
     let sort_content
     if (type == 'inbox') {
         sort_content = items.sort((a, b) => a.date > b.date).filter((content) => content.type === type);
-    } 
-    if (type == 'today') {
+    }
+    else if (type == 'today') {
         sort_content = items.sort((a, b) => a.date > b.date).filter((content) => content.date === getFullDate());
     }
-    if (type == 'next') {
-        sort_content = items.sort((a, b) => a.date > b.date).filter((item) => new Date(getFullDate()).getTime() < new Date(item.date).getTime() && new Date(item.date).getTime() <= new Date(getFullDate(7)).getTime());
+    else if (type == 'next') {
+        sort_content = items.sort((a, b) => a.date > b.date).filter((item) => new Date(getFullDate()).getTime() <= new Date(item.date).getTime() && new Date(item.date).getTime() <= new Date(getFullDate(7)).getTime());
     }
-    if(type !== 'inbox' && type !== 'today' && type !== 'next') {
+    // (type !== 'inbox' && type !== 'today' && type !== 'next')
+    else {  
         sort_content = items.sort((a, b) => a.date > b.date).filter((content) => content.type === type);
     }
 
-    
+
 
     sort_content.forEach((content, index) => {
         const item_div = document.createElement('div');
+        const item_div_left = document.createElement('div');
+        const item_checkbox = document.createElement('input');
         const item_para = document.createElement('p');
+        const item_detail = document.createElement('span');
         const date_span = document.createElement('span');
         const option_div = document.createElement('div');
         const delete_button = document.createElement('span');
         const update_button = document.createElement('span');
         item_div.classList.add('item');
-        item_para.textContent = content.data;
+        item_div_left.classList.add('item_div_left');
+        item_checkbox.classList.add('checkbox');
+        if(content.checked) {
+            item_para.classList.add('checked');
+            item_checkbox.checked = true;
+        } 
+        item_checkbox.setAttribute('type', 'checkbox');
+        item_checkbox.addEventListener('change', (e) => {
+            const checked = e.target.checked;
+            if(checked) {
+                content.checked = checked;
+                item_para.classList.add('checked');
+            } else {
+                content.checked = checked;
+                item_para.classList.remove('checked');
+            }
+            
+        })
+        item_para.classList.add('item_para');
+        item_detail.classList.add('detail');
+        if (type == "today" || type == "next") {
+            item_para.textContent= content.data;
+            item_detail.textContent = content.type;
+        } else {
+            item_para.textContent = content.data;
+        }
         delete_button.textContent = 'delete';
         delete_button.classList.add('delete');
         update_button.textContent = 'update';
@@ -256,7 +366,12 @@ function render(type) {
         option_div.appendChild(date_span);
         option_div.appendChild(update_button);
         option_div.appendChild(delete_button);
-        item_div.appendChild(item_para);
+        item_div_left.appendChild(item_checkbox);
+        item_div_left.appendChild(item_para);
+        item_div_left.appendChild(item_detail);
+        // item_div.appendChild(item_para);
+        // item_div.appendChild(item_detail);
+        item_div.appendChild(item_div_left);
         item_div.appendChild(option_div);
         update_button.addEventListener('click', (e) => updateForm(type, content));
         delete_button.addEventListener('click', (e) => deleteItem(type, content.data));
@@ -303,6 +418,8 @@ function getFullDate(days) {
         return `${current_get_year}-${current_get_month}-${current_get_date}`;
     }
 }
+
+
 side_header_ul.addEventListener('click', (e) => {
     const type = e.target.dataset.type;
 
@@ -310,7 +427,7 @@ side_header_ul.addEventListener('click', (e) => {
         resetActive();
         main_header_title.textContent = type;
         e.target.classList.add('active');
-        createForm(type);
+        createForm(type)
         render(type);
     }
 
@@ -334,25 +451,34 @@ side_header_ul.addEventListener('click', (e) => {
     if (type == 'project') {
         resetActive();
         main_header_title.textContent = type;
+        items_layout.innerHTML = '';
         e.target.classList.add('active');
         createForm(type);
-        render(type);
     }
 });
 side_main_ul.addEventListener('click', (e) => {
     const type = e.target.dataset.type;
-    if (type === 'work') {
+    // if (type === 'work') {
+    //     resetActive();
+    //     main_header_title.textContent = type;
+    //     e.target.classList.add('active');
+    //     createForm(type);
+    //     render(type);
+    // }
+    // if (type === 'personal') {
+    //     resetActive();
+    //     main_header_title.textContent = type;
+    //     e.target.classList.add('active');
+    //     createForm(type);
+    //     render(type);
+    // }
+
+    if(type) {
         resetActive();
         main_header_title.textContent = type;
         e.target.classList.add('active');
         createForm(type);
         render(type);
     }
-    if (type === 'personal') {
-        resetActive();
-        main_header_title.textContent = type;
-        e.target.classList.add('active');
-        createForm(type);
-        render(type);
-    }
+
 })
