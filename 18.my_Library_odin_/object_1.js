@@ -13,14 +13,14 @@ function Book(title, author, pages, read) {
 
 }
 
-class Book {
-    constructor(title, author, pages, read) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.read = read;
-    }
-}
+// class Book {
+//     constructor(title, author, pages, read) {
+//         this.title = title;
+//         this.author = author;
+//         this.pages = pages;
+//         this.read = read;
+//     }
+// }
 
 //  form submit
 bookForm.addEventListener('submit', (event) => {
@@ -28,24 +28,39 @@ bookForm.addEventListener('submit', (event) => {
     // console.log('click form', event.target.attributes.id.value);
     console.log('add');
     // new book data
-    const title = document.querySelector('#title').value;
+    // const title = document.querySelector('#title').value;
+    const title = document.querySelector('#title');
+    const titleError = document.querySelector('#title + span.error');
     const author = document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
     const read = document.querySelector('#read_status').value;
 
-    if (!title || !author || !pages) {
-        alert('correctly input title, author, pages, read');
-
-    } else {
+    
+    if(title.validity.valid) {
         let newBook = new Book(title, author, pages, read);
         // add array
         myLibrary.push(newBook);
-        
+        titleError.textContent = '';
+        titleError.className = 'error';    
         // view
         updateLocalStorage();
         render();
-        // console.log(myLibrary);
+    } else {
+        showError();
     }
+    // if (!title || !author || !pages) {
+    //     alert('correctly input title, author, pages, read');
+
+    // } else {
+    //     let newBook = new Book(title, author, pages, read);
+    //     // add array
+    //     myLibrary.push(newBook);
+        
+    //     // view
+    //     updateLocalStorage();
+    //     render();
+    //     // console.log(myLibrary);
+    // }
     // create instance 
 
 
@@ -121,3 +136,16 @@ function delete_book(book_index) {
     }
 }
 render();
+
+
+function showError() {
+    if(title.validity.valueMissing) {
+        titleError.textContent = 'You need to enter an title';
+    } else if(title.validity.typeMismatch) {
+        //
+    } else if(title.validity.tooShort) {
+        titleError.textContent = `Title should be at least ${title.minLength}`;
+    }
+
+    titleError.className = 'error active';
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #browser {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+        }
+
+        input {
+            padding: 10px;
+        }
+
+        input:invalid {
+            border: 2px solid red;
+        }
+
+        input:valid {
+            border: 2px solid green;
+        }
+
+        span {
+            font-size: 10px;
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="browser">
+        <input type="email" id="email" class="email" minlength="6" />
+        <span class="email_error"></span>
+        <input type="text" id="country" class="country" minlength="4" />
+        <span class="country_error"></span>
+        <input type="text" id="zipcode" class="zipcode" minlength="6" maxlength="12" />
+        <span class="zipcode_error"></span>
+        <input type="password" id="password" class="password" minlength="4" maxlength="8" />
+        <span class="password_error"></span>
+        <input type="password" id="password_confirmation" class="password_confirmation" min="4" max="8" />
+        <span class="password_confirmation_error"></span>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+        const input = document.querySelectorAll('input');
+        const browser_form = document.querySelector('#browser');
+        // const email = document.querySelector('#email');
+        const email = document.getElementById('email');
+        const email_error = document.querySelector('.email_error');
+        // const country = document.querySelector('#country');
+        const country = document.getElementById('country');
+        const country_error = document.querySelector('.country_error');
+        // const zipcode = document.querySelector('#zipcode');
+        const zipcode = document.getElementById('zipcode');
+        const zipcode_error = document.querySelector('.zipcode_error');
+        // const password = document.querySelector('#password');
+        const password = document.getElementById('password');
+        const password_error = document.querySelector('.password_error');
+        // const password_confirmation = document.querySelector('#password_confirmation');
+        const password_confirmation = document.getElementById('password_confirmation');
+        const password_confirmation_error = document.querySelector('.password_confirmation_error');
+
+        input.forEach((val) => {
+            val.addEventListener('keypress', (e) => {
+                if(e.target.className == 'email' && email.validity.valid) {
+                    email_error.textContent = '';
+                    email_error.className = 'error';
+                } else {
+                    showError();
+                }
+
+                if(e.target.className == 'country' && country.validity.valid) {
+                    country_error.textContent = '';
+                    country_error.className = 'error';
+                } else {
+                    showError();
+                }
+
+                if(e.target.className == 'zipcode' && zipcode.validity.valid) {
+                    zipcode_error.textContent = '';
+                    zipcode_error.className = 'error';
+                } else {
+                    showError();
+                }
+
+                if(e.target.className == 'password' && password.validity.valid) {
+                    password_error.textContent = '';
+                    password_error.className = 'error';
+                } else {
+                    showError();
+                }    
+            });
+            
+        })
+        
+            
+        
+
+        // browser_form.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     if (!email.validity.valid || !country.validity.valid || !zipcode.validity.valid || !password.validity.valid || password_confirmation.validity.valid) {
+        //         showError();
+        //     } else {
+        //         console.log('success');
+        //     }
+        // });
+
+        // function showError() {
+        //     // if(!email.value) {
+        //     //         email_error.textContent = 'empty email, please input email address';
+        //     //     } else {
+        //     //         email_error.textContent = '';
+        //     //     }
+        //     if (email.validity.valid) {
+        //         email.setCustomValidity("");
+        //     } else if(email.validity.typeMismatch) {
+        //         email.setCustomValidity("I am expecting an e-mail addresssss");
+        //     } else {
+        //         email.setCustomValidity("Please input email address, now is empty");
+        //     }
+
+        //     if (country.validity.valid) {
+        //         country.setCustomValidity("");
+        //     } else if(email.validity.typeMismatch) {
+        //         country.setCustomValidity("I am expecting an e-mail addresssss");
+        //     } else {
+        //         country.setCustomValidity("Please input country, now is empty");
+        //     }
+
+
+        //     // if(!country.value) {
+        //     //     country_error.textContent = 'empty country'
+        //     // } else if(!isNaN(country.value)) {
+        //     //     country_error.textContent = 'country must be number';
+        //     // } else {
+        //     //     country_error.textContent = '';
+        //     // }
+
+        //     // if(!zipcode.value) {
+        //     //     zipcode_error.textContent = 'empty zipcode';
+        //     // } else if(!Number.isInteger(Number(zipcode.value))) {
+        //     //     zipcode_error.textContent = 'zipcode must be number';
+        //     //     console.log(typeof zipcode.value);
+        //     // }  else {
+        //     //     zipcode_error.textContent = '';
+        //     // }
+
+        //     // if(!password.value) {
+        //     //     password_error.textContent = 'empty password';
+        //     // }  else {
+        //     //     password_error.textContent = '';
+        //     // }
+
+        //     // if(!password_confirmation.value) {
+        //     //     password_confirmation_error.textContent = 'empty password_confirmation';
+        //     // } else if(password !== password_confirmation) {
+        //     //     password_confirmation_error.textContent = 'both pass are not same';
+        //     // }  else {
+        //     //     password_confirmation_error.textContent = '';
+        //     // }
+
+
+
+        // }
+
+
+
+        function showError() {
+            if (email.validity.valueMissing) {
+                //  is empty
+                email_error.textContent = 'You need to enter an e-mail address.';
+            } else if (email.validity.typeMismatch) {
+                // If the field doesn't contain an email address
+                email_error.textContent = 'Entered value needs to be an e-mail address.';
+            } else if (email.validity.tooShort) {
+                // If the data is too short
+                email_error.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+            }
+            // Set the styling appropriately
+            email_error.className = 'error active';
+
+            if (country.validity.valueMissing) {
+                //  is empty
+                country_error.textContent = 'You need to enter country';
+            } else if (country.validity.tooShort) {
+                // If the data is too short
+                country_error.textContent = `country should be at least ${country.minLength} characters; you entered ${country.value.length}.`;
+            }
+            // Set the styling appropriately
+            country_error.className = 'error active';
+
+            if (zipcode.validity.valueMissing) {
+                //  is empty
+                zipcode_error.textContent = 'You need to enter country';
+            } else if (zipcode.validity.tooShort) {
+                // If the data is too short
+                zipcode_error.textContent = `zipcode should be at least ${zipcode.minLength} characters; you entered ${zipcode.value.length}.`;
+            }
+            // Set the styling appropriately
+            zipcode_error.className = 'error active';
+
+            if (password.validity.valueMissing) {
+                //  is empty
+                password_error.textContent = 'You need to enter password';
+            } else if (password.validity.tooShort) {
+                // If the data is too short
+                password_error.textContent = `password should be at least ${password.minLength} characters; you entered ${password.value.length}.`;
+            }
+            // Set the styling appropriately
+            password_error.className = 'error active';
+
+        }
+
+
+    </script>
+</body>
+
+</html>

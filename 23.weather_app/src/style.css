@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+.index {
+    background-color: dimgrey;
+    height: 100%;
+    padding: 30px 40px;
+    color: #fff;
+    text-transform: capitalize;
+    
+    
+    
+    
+}
+
+.container_layout {
+    display: flex;
+
+}
+
+/* left */
+.left_layout {
+    /* background-color: bisque; */
+    width: 100vw;
+}
+
+.section {
+    width: 220px;
+    /* height: 60px; */
+    margin: 20px 0;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: deepskyblue; */
+}
+.describe {
+    font-size: 25px;
+}
+.degree {
+    font-size: 35px;
+}
+.city {
+    font-size: 18px;
+}
+
+.change_location {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 2;
+}
+.change_input {
+    padding: 4px 0;
+}
+
+
+
+/* right */
+.right_layout {
+    /* background-color: coral; */
+    width: 100vw;
+}
+.right_layout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.bottom_layout {
+    
+    /* background-color: darkseagreen; */
+    display: flex;
+    gap: 18px;
+    padding: 20px 0;
+}
+.item_layout {
+    width: 100%;
+    /* margin-top: 40px; */
+    height: 160px;
+    /* background-color: forestgreen; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.item_layout:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 0px 1px 2px rgb(68, 67, 67);
+}
+.bottom_section_header {
+    margin-bottom: 14px;
+}
+.bottom_section_body {
+    font-size: 25px;
+    text-align: center;
+}
+.bottom_icon {
+    width: 60%;
+    height: 60%;
+}
+.bottom_section_footer  {
+    font-size: 20px;
+}
+
+
+
+@media (max-width: 414px) {
+    .index  {
+        height: auto;
+        padding: 30px;
+    }
+
+    .describe section {
+        font-size: 20px;
+    }
+    .city {
+        font-size: 14px;
+    }
+    .bottom_layout {
+        display: block;
+    }
+    .bottom_layout:last-child {
+        border-bottom: 1px solid rgb(214, 214, 214);    
+    }
+    .item_layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid rgb(214, 214, 214);
+        
+    }
+    .item_layout:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .feellike {
+        display: none;
+    }
+    .bottom_section_header {
+        text-align: center;
+    }
+
+    .bottom_section_body {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+
+}

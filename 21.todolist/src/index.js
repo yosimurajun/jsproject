@@ -274,23 +274,23 @@ function deleteItem(type, content) {
     // console.log(items);
     items_layout.innerHTML = '';
 
-    if (type === "inbox") {
-        items = items.filter((item) => item.data !== content);
+    if (type === content.type) {
+        items = items.filter((item) => item.data !== content.data);
         render(type);
     }
 
     if (type === 'today') {
-        items = items.filter((item) => item.data !== content);
+        items = items.filter((item) => item.data !== content.data);
         render(type);
     }
     if (type === 'next') {
-        items = items = items.filter((item) => item.data !== content);
+        items = items = items.filter((item) => item.data !== content.data);
         render(type);
     }
-    if (type !== 'inbox' && type !== 'today' && type !== 'next') {
-        items = items = items.filter((item) => item.data !== content);
-        render(type);
-    }
+    // if (type !== 'inbox' && type !== 'today' && type !== 'next') {
+    //     items = items = items.filter((item) => item.data !== content.data);
+    //     render(type);
+    // }
 
 }
 
@@ -374,7 +374,7 @@ function render(type) {
         item_div.appendChild(item_div_left);
         item_div.appendChild(option_div);
         update_button.addEventListener('click', (e) => updateForm(type, content));
-        delete_button.addEventListener('click', (e) => deleteItem(type, content.data));
+        delete_button.addEventListener('click', (e) => deleteItem(type, content));
         items_layout.appendChild(item_div);
     })
 }

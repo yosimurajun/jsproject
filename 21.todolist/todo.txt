@@ -1,0 +1,4 @@
+check delete function
+content char number restriction
+reponsive view
+
