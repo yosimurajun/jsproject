@@ -14,6 +14,8 @@ const General_infomation = (props) => {
                 <input type="text" name="phone" id="phone" className="person" onChange={onChange}/>
                 <label htmlFor="nation">city, nation</label>
                 <input type="text" name="nation" id="nation" className="person" onChange={onChange}/>
+                <label htmlFor="content">content</label>
+                <textarea name="content" col="4" rows="6" id="content" className="person" onChange={onChange}></textarea>
             </form>
         </div>
     )

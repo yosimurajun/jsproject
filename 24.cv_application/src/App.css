@@ -6,6 +6,7 @@
 
 .title {
   text-align: center;
+  padding: 20px 0;
 }
 .container {
   display: flex;
@@ -48,6 +49,13 @@ input[type="submit"] {
   background-color: #fff;
 }
 
+.greenbox {
+  border: 5px solid rgb(3, 139, 3);
+}
+textarea {
+  resize: none;
+  border: 1px solid #000;
+}
 /* preview */
 
 .preview_section  {
@@ -56,7 +64,7 @@ input[type="submit"] {
   border-radius: 2px;
   padding: 40px;
   width: 580px;
-  min-height: 600px;
+  min-height: 650px;
 }
 
 .preview > .header {
@@ -84,6 +92,9 @@ input[type="submit"] {
 .flex {
   display: flex;
 }
+.flex-direct {
+  flex-direction: column;
+}
 .space_between {
   justify-content: space-between;
 }
@@ -102,6 +113,30 @@ input[type="submit"] {
   min-height: 150px;
 }
 
+.position_relative {
+  position: relative;
+}
+.palleral_line {
+  border-bottom: 1px dotted rgb(5, 5, 5);
+  width: 40px;
+  height: 12px;
+}
+.position_absoulute {
+  position: absolute;
+  
+  right: -8.5rem;
+  top: 0px;
+}
+.delete, .update {
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
+  border: none;
+  padding: 4px 8px;
+  margin-top: 8px;
+}
+.green {
+  background-color: rgb(3, 139, 3);
+}
 
 /*  */
 
