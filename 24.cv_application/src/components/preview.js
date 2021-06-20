@@ -1,8 +1,9 @@
 const Preview = (props) => {
-    const { person, academy, works } = props.data;
-    const { onDelete, onUpdate } = props;
+    // const { person, academy, works } = props.data;
+    const { person, academy, works, onDelete, onUpdate, onFake } = props;
     return (
         <div className="preview">
+            <button className="fake_button" onClick={onFake}>fake data</button>
             <div className="header mg_b_10">
                 <div className="header_left">
                     <h1 className="preview_name head_color">{person.name}</h1>

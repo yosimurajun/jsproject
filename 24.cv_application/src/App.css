@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+
+.fake_button {
+  position: absolute;
+  left: 16rem;
+  background-color: green;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+}
+.fake_button:hover {
+  background-color: darkgreen;
+}
 .title {
   text-align: center;
   padding: 20px 0;

@@ -1,5 +1,9 @@
+import React, { useState } from "react";
+
 const General_infomation = (props) => {
     const { onChange } = props;
+
+
     return (
         <div className="section">
             <h2>general infomation</h2>
